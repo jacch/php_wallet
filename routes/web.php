@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index','walletpost@index');
+Route::get('/i','walletpost@create');
