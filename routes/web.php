@@ -39,6 +39,7 @@ Auth::routes(["register"=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/loadjson', 'HomeController@loadjson');
+Route::get('/checked', 'HomeController@checked');
 
 //loadjson
 

@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    <div id="app"> <example-component></example-component></div>
+                    <div id="app"><listwallet></listwallet></div>
+                   
+
+
 
 
                 </div>
