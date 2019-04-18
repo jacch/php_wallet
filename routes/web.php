@@ -30,3 +30,16 @@ Route::get('/', function () {
 
 Route::get('/index','walletpost@index');
 Route::get('/IdbKjq04uPPvENV7SAYyzM1q20d792OQ','walletpost@create');
+
+//Auth::routes();
+
+Auth::routes(["register"=>false]);
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/loadjson', 'HomeController@loadjson');
+
+//loadjson
+
+//Route::get('/login', 'HomeController@index')->name('home');

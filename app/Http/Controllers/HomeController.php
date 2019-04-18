@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\walletbook;
+
 class HomeController extends Controller
 {
     /**
@@ -21,8 +23,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+     public function loadjson()
+     {
+         $all=walletbook::all();
+         return json_encode($all);
+     }
+
+
     public function index()
     {
+        
         return view('home');
+
     }
 }

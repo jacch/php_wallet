@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Hello  Today IS: {{ date("Y-m-d H:i:s")}}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <div id="app"> <list-wallet></list-wallet></div>
+                    <script src="{{ asset('js/app.js') }}" defer></script>
 
-                    You are logged in!
+
                 </div>
             </div>
         </div>
