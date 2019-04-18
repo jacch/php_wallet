@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div id="app"> <list-wallet></list-wallet></div>
-                    <script src="{{ asset('js/app.js') }}" defer></script>
+
+                    <div id="app"> <example-component></example-component></div>
 
 
                 </div>
