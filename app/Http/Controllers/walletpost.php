@@ -35,23 +35,29 @@ class walletpost extends Controller
         //
         //$posts = DB::table('walletbooks')->get();
         //var_dump($posts);
+       $t=walletbook::all()->last();
+       //echo $t["created_at"];
+       $last_update=strtotime($t["created_at"]);
+       if((time()-20)>$last_update){
 
         $wallet = new walletbook();
         $wallet->id=null;
-
         $wallet->comment=$REQUEST["text"];
-        $wallet->price=preg_replace("/[^0-9]/", '', $REQUEST["comment"]);
-
-
+        $wallet->price=preg_replace("/[^0-9]/", '', $REQUEST["text"]);
+        $wallet->paytype="食";
         $wallet->paydate=date("Y-m-d");
-        $wallet->updated_at=date("Y-m-d");
-        $wallet->created_at=date("Y-m-d");
-
+        $wallet->updated_at=date("Y-m-d H:i:s");
+        $wallet->created_at=date("Y-m-d H:i:s");
         $wallet->save();
         //var_dump($wallet );
 
+          $reply="ok!";
+       }else{
+          $reply="send to fast!";
+       }
 
-        return $REQUEST["key"];
+
+        return $reply;
 
     }
 

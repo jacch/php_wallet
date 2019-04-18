@@ -17,7 +17,9 @@ class CreateWalletbooksTable extends Migration
           $table->bigIncrements('id');
           $table->string('comment');
           $table->integer('price');
+          $table->string('paytype');
           $table->date('paydate');
+          $table->integer('pay_checked')->default(0);
           $table->timestamp('created_at')->nullable();
           $table->timestamp('updated_at')->nullable();
         });
