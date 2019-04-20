@@ -44,9 +44,11 @@ class walletpost extends Controller
         //echo "<br />";
         $AT=env('APP_TOKEN');
         if($REQUEST->header("userToken")!=$AT){
+          echo "權限不足！";
           exit;
         }
 
+     try{
        $t=walletbook::all()->last();
        //echo $t["created_at"];
        $last_update=strtotime($t["created_at"]);
@@ -63,13 +65,13 @@ class walletpost extends Controller
         $wallet->updated_at=date("Y-m-d H:i:s");
         $wallet->created_at=date("Y-m-d H:i:s");
         $wallet->save();
-        //var_dump($wallet );
-
-          $reply="好了!";
+        $reply="好了!";
        }else{
           $reply="您送出太快了!";
        }
-
+     }catch(\Exception $e){
+       $reply="寫入失敗！";
+     }
 
         return $reply;
 
