@@ -28,20 +28,24 @@
          }
        },methods:{
          resendtext(id,text){
-           axios.get(`/update?id=${id}&item=comment&value=${text}`)
+           axios.get(`/update?id=${id}&item=comment&value=${text}`).
+           then(res=> this.status = res.data)
            .catch(err=>console.log(err));
          },
          resendprice(id,text){
-           axios.get(`/update?id=${id}&item=price&value=${text}`)
+           axios.get(`/update?id=${id}&item=price&value=${text}`).
+           then(res=> this.status = res.data)
            .catch(err=>console.log(err));
          },
          resendtype(id,text){
-           axios.get(`/update?id=${id}&item=paytype&value=${text}`)
+           axios.get(`/update?id=${id}&item=paytype&value=${text}`).
+           then(res=> this.status = res.data)
            .catch(err=>console.log(err));
          }
           ,
          resenddate(id,text){
-           axios.get(`/update?id=${id}&item=paydate&value=${text}`)
+           axios.get(`/update?id=${id}&item=paydate&value=${text}`).
+           then(res=> this.status = res.data)
            .catch(err=>console.log(err));
          }
           ,reloadpage(){
@@ -51,7 +55,6 @@
           }
        },
         mounted() {
-            alert(1);
             axios.get('/loadjsonfalse').
             then(res=> this.t = res.data)
             .catch(err=>console.log(err));

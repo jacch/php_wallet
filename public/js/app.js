@@ -1875,41 +1875,56 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     resendtext: function resendtext(id, text) {
-      axios.get("/update?id=".concat(id, "&item=comment&value=").concat(text))["catch"](function (err) {
+      var _this = this;
+
+      axios.get("/update?id=".concat(id, "&item=comment&value=").concat(text)).then(function (res) {
+        return _this.status = res.data;
+      })["catch"](function (err) {
         return console.log(err);
       });
     },
     resendprice: function resendprice(id, text) {
-      axios.get("/update?id=".concat(id, "&item=price&value=").concat(text))["catch"](function (err) {
+      var _this2 = this;
+
+      axios.get("/update?id=".concat(id, "&item=price&value=").concat(text)).then(function (res) {
+        return _this2.status = res.data;
+      })["catch"](function (err) {
         return console.log(err);
       });
     },
     resendtype: function resendtype(id, text) {
-      axios.get("/update?id=".concat(id, "&item=paytype&value=").concat(text))["catch"](function (err) {
+      var _this3 = this;
+
+      axios.get("/update?id=".concat(id, "&item=paytype&value=").concat(text)).then(function (res) {
+        return _this3.status = res.data;
+      })["catch"](function (err) {
         return console.log(err);
       });
     },
     resenddate: function resenddate(id, text) {
-      axios.get("/update?id=".concat(id, "&item=paydate&value=").concat(text))["catch"](function (err) {
+      var _this4 = this;
+
+      axios.get("/update?id=".concat(id, "&item=paydate&value=").concat(text)).then(function (res) {
+        return _this4.status = res.data;
+      })["catch"](function (err) {
         return console.log(err);
       });
     },
     reloadpage: function reloadpage() {
-      var _this = this;
+      var _this5 = this;
 
       axios.get('/loadjsonfalse').then(function (res) {
-        return _this.t = res.data;
+        return _this5.t = res.data;
       })["catch"](function (err) {
         return console.log(err);
       });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this6 = this;
 
-    alert(1);
     axios.get('/loadjsonfalse').then(function (res) {
-      return _this2.t = res.data;
+      return _this6.t = res.data;
     })["catch"](function (err) {
       return console.log(err);
     });
