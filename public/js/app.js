@@ -1797,7 +1797,6 @@ __webpack_require__.r(__webpack_exports__);
     sendchecked: function sendchecked(id, v) {
       var _this = this;
 
-      alert(v);
       axios.get("/checked?id=".concat(id, "&item=pay_checked&value=").concat(v)).then(function (res) {
         return _this.status = res.data;
       })["catch"](function (err) {
@@ -1904,6 +1903,7 @@ __webpack_require__.r(__webpack_exports__);
     resenddate: function resenddate(id, text) {
       var _this4 = this;
 
+      alert(1);
       axios.get("/update?id=".concat(id, "&item=paydate&value=").concat(text)).then(function (res) {
         return _this4.status = res.data;
       })["catch"](function (err) {

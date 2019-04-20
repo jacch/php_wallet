@@ -28,8 +28,7 @@
           total:0
          }
        },methods:{
-         sendchecked(id,v){
-           alert(v)
+         sendchecked(id,v){ 
            axios.get(`/checked?id=${id}&item=pay_checked&value=${v}`).
            then(res=> this.status = res.data)
            .catch(err=>console.log(err)).then(() => {

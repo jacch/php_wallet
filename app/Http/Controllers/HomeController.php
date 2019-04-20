@@ -81,7 +81,7 @@ class HomeController extends Controller
         $wallet->save();
       break;
       case "paydate":
-       $wallet->price = $REQUEST["value"];
+       $wallet->paydate = $REQUEST["value"];
        $wallet->save();
       break;
 
