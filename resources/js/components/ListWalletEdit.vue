@@ -43,8 +43,7 @@
            .catch(err=>console.log(err));
          }
           ,
-         resenddate(id,text){
-           alert(1)
+         resenddate(id,text){ 
            axios.get(`/update?id=${id}&item=paydate&value=${text}`).
            then(res=> this.status = res.data)
            .catch(err=>console.log(err));

@@ -1903,7 +1903,6 @@ __webpack_require__.r(__webpack_exports__);
     resenddate: function resenddate(id, text) {
       var _this4 = this;
 
-      alert(1);
       axios.get("/update?id=".concat(id, "&item=paydate&value=").concat(text)).then(function (res) {
         return _this4.status = res.data;
       })["catch"](function (err) {
