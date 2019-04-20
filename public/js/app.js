@@ -1797,7 +1797,6 @@ __webpack_require__.r(__webpack_exports__);
     sendchecked: function sendchecked(id, v) {
       var _this = this;
 
-      alert(v);
       axios.get("/checked?id=".concat(id, "&item=pay_checked&value=").concat(v)).then(function (res) {
         return _this.status = res.data;
       })["catch"](function (err) {
