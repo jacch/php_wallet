@@ -60,7 +60,7 @@ class walletpost extends Controller
         $wallet->price=preg_replace("/[^0-9]/", '', $REQUEST["text"]);
         $wallet->paytype="食";
 
-        $wallet->pay_checked=false;
+        $wallet->pay_checked="false";
         $wallet->paydate=date("Y-m-d");
         $wallet->updated_at=date("Y-m-d H:i:s");
         $wallet->created_at=date("Y-m-d H:i:s");

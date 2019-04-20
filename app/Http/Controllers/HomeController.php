@@ -30,6 +30,12 @@ class HomeController extends Controller
          return json_encode($all);
      }
 
+     public function loadjsonfalse()
+     {
+         $all=walletbook::where("pay_checked","!=","true")->get();
+         return json_encode($all);
+     }
+
      public function checked(Request $REQUEST)
      {
 

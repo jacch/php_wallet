@@ -1897,7 +1897,7 @@ __webpack_require__.r(__webpack_exports__);
     reloadpage: function reloadpage() {
       var _this = this;
 
-      axios.get('/loadjson').then(function (res) {
+      axios.get('/loadjsonfalse').then(function (res) {
         return _this.t = res.data;
       })["catch"](function (err) {
         return console.log(err);
@@ -1907,7 +1907,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    axios.get('/loadjson').then(function (res) {
+    alert(1);
+    axios.get('/loadjsonfalse').then(function (res) {
       return _this2.t = res.data;
     })["catch"](function (err) {
       return console.log(err);
@@ -38020,124 +38021,115 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _vm._l(_vm.t, function(pay) {
-        return pay.pay_checked == "false"
-          ? _c(
-              "tr",
-              {
-                key: pay.id,
-                staticClass: "{pay.pay_checked=='false'?'':'text-danger'}"
-              },
-              [
-                _c("td", [_vm._v(_vm._s(pay.id))]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: pay.comment,
-                        expression: "pay.comment"
-                      }
-                    ],
-                    attrs: { placeholder: "edit me" },
-                    domProps: { value: pay.comment },
-                    on: {
-                      blur: function($event) {
-                        return _vm.resendtext(pay.id, pay.comment)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(pay, "comment", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: pay.price,
-                        expression: "pay.price"
-                      }
-                    ],
-                    attrs: { placeholder: "edit me" },
-                    domProps: { value: pay.price },
-                    on: {
-                      blur: function($event) {
-                        return _vm.resendprice(pay.id, pay.price)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(pay, "price", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: pay.paytype,
-                        expression: "pay.paytype"
-                      }
-                    ],
-                    attrs: { placeholder: "edit me" },
-                    domProps: { value: pay.paytype },
-                    on: {
-                      blur: function($event) {
-                        return _vm.resendtype(pay.id, pay.paytype)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(pay, "paytype", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: pay.paydate,
-                        expression: "pay.paydate"
-                      }
-                    ],
-                    attrs: { placeholder: "edit me" },
-                    domProps: { value: pay.paydate },
-                    on: {
-                      blur: function($event) {
-                        return _vm.resenddate(pay.id, pay.paydate)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(pay, "paydate", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "w100" })
-              ]
-            )
-          : _vm._e()
+        return _c("tr", { key: pay.id }, [
+          _c("td", [_vm._v(_vm._s(pay.id))]),
+          _vm._v(" "),
+          _c("td", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: pay.comment,
+                  expression: "pay.comment"
+                }
+              ],
+              attrs: { placeholder: "edit me" },
+              domProps: { value: pay.comment },
+              on: {
+                blur: function($event) {
+                  return _vm.resendtext(pay.id, pay.comment)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(pay, "comment", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("td", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: pay.price,
+                  expression: "pay.price"
+                }
+              ],
+              attrs: { placeholder: "edit me" },
+              domProps: { value: pay.price },
+              on: {
+                blur: function($event) {
+                  return _vm.resendprice(pay.id, pay.price)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(pay, "price", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("td", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: pay.paytype,
+                  expression: "pay.paytype"
+                }
+              ],
+              attrs: { placeholder: "edit me" },
+              domProps: { value: pay.paytype },
+              on: {
+                blur: function($event) {
+                  return _vm.resendtype(pay.id, pay.paytype)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(pay, "paytype", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("td", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: pay.paydate,
+                  expression: "pay.paydate"
+                }
+              ],
+              attrs: { placeholder: "edit me" },
+              domProps: { value: pay.paydate },
+              on: {
+                blur: function($event) {
+                  return _vm.resenddate(pay.id, pay.paydate)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(pay, "paydate", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "w100" })
+        ])
       }),
       _vm._v(" "),
       _c("tr", [
