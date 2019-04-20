@@ -29,7 +29,9 @@ Route::get('/', function () {
 
 
 Route::get('/index','walletpost@index');
-Route::get('/IdbKjq04uPPvENV7SAYyzM1q20d792OQ','walletpost@create');
+Route::get('/w','walletpost@create');
+
+Route::get('/testToken','walletpost@testtoken');
 
 //Auth::routes();
 

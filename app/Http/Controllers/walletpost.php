@@ -35,6 +35,18 @@ class walletpost extends Controller
         //
         //$posts = DB::table('walletbooks')->get();
         //var_dump($posts);
+
+        //echo $AT;
+        //echo "<br />";
+        //echo "takens";
+        //echo "<br />";
+        //echo $REQUEST->header("userToken");
+        //echo "<br />";
+        $AT=env('APP_TOKEN');
+        if($REQUEST->header("userToken")!=$AT){
+          exit;
+        }
+
        $t=walletbook::all()->last();
        //echo $t["created_at"];
        $last_update=strtotime($t["created_at"]);
@@ -53,13 +65,33 @@ class walletpost extends Controller
         $wallet->save();
         //var_dump($wallet );
 
-          $reply="ok!";
+          $reply="好了!";
        }else{
-          $reply="send to fast!";
+          $reply="您送出太快了!";
        }
 
 
         return $reply;
+
+    }
+
+    //testtoken
+    public function testtoken(Request $REQUEST)
+    {
+           //$header=
+           $AT=env('APP_TOKEN');
+           //echo $AT;
+           //echo "<br />";
+           //echo "takens";
+           //echo "<br />";
+           //echo $REQUEST->header("userToken");
+           echo "<br />";
+
+           if($REQUEST->header("userToken")==$AT){
+             echo "ok";
+           }else{
+             echo "xxxx";
+           }
 
     }
 

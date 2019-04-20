@@ -22,12 +22,10 @@
     export default {
 
         data(){
-
-          return {
+         return {
           t:[],
           status:[],
           total:0
-
          }
        },methods:{
          sendchecked(id,v){
