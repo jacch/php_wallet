@@ -30,41 +30,68 @@ class HomeController extends Controller
          return json_encode($all);
      }
 
-     public function checked()
+     public function checked(Request $REQUEST)
      {
-         $all=walletbook::all();
-         return json_encode($all);
+
+       $wallet = walletbook::find($REQUEST["id"]);
+       switch($REQUEST["item"]){
+       case "pay_checked":
+         $wallet->pay_checked = $REQUEST["value"];
+         $wallet->save();
+         break;
+       }
      }
 
-     public function update()
+
+
+
+     public function update(Request $REQUEST)
      {
 
 
-     $t=walletbook::all()->last();
+     //$t=walletbook::all();
      //echo $t["created_at"];
-     $last_update=strtotime($t["created_at"]);
-     if((time()-20)>$last_update){
+     //$last_update=strtotime($t["created_at"]);
+     //echo  $REQUEST["id"];
+     $wallet = walletbook::find($REQUEST["id"]);
 
-      $wallet = new walletbook();
-      $wallet->id=null;
-      $wallet->comment=$REQUEST["text"];
-      $wallet->price=preg_replace("/[^0-9]/", '', $REQUEST["text"]);
-      $wallet->paytype="食";
-      $wallet->paydate=date("Y-m-d");
-      $wallet->updated_at=date("Y-m-d H:i:s");
-      $wallet->created_at=date("Y-m-d H:i:s");
-      $wallet->save();
-      //var_dump($wallet );
-
-        $reply="ok!";
-     }else{
-        $reply="send to fast!";
+     if($wallet["pay_checked"]!="false"){
+       //return view('home');
+       exit;
      }
-   }
+     switch($REQUEST["item"]){
+       case "price":
+        if($REQUEST["value"]>0){
+          $wallet->price = $REQUEST["value"];
+          $wallet->save();
+        }
+      break;
+      case "comment":
+         $wallet->comment = $REQUEST["value"];
+         $wallet->save();
+      break;
+      case "paytype":
+        $wallet->paytype = $REQUEST["value"];
+        $wallet->save();
+      break;
+      case "paydate":
+       $wallet->price = $REQUEST["value"];
+       $wallet->save();
+      break;
 
+     }
+
+
+
+
+   }
+   public function edit()
+   {
+       return view('edit');
+
+   }
     public function index()
     {
-
         return view('home');
 
     }

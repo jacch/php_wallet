@@ -40,6 +40,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/loadjson', 'HomeController@loadjson');
 Route::get('/checked', 'HomeController@checked');
+Route::get('/update', 'HomeController@update');
+Route::get('/edit', 'HomeController@edit');
+Route::get('/checked', 'HomeController@checked');
 
 //loadjson
 
